@@ -20,9 +20,11 @@
     </tr>
     <th:block th:each="product : ${products}">
         <tr>
-            <td th:text="${product.name}"></td>
+            <td> <a th:href="@{/detail-product/__${product.id}__ }" th:text="${product.name}"></a></td>
             <td th:text="${product.description}"></td>
-            <td th:text="${product.images}"></td>
+            <td>
+                <img th:style="'width:100px'" th:src="@{'/images/'+ ${product.images}}"/>
+            </td>
             <td th:text="${product.price}"></td>
             <td><a th:href="@{/edit-product/__${product.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-product/__${product.id}__ }">Delete</a></td>

@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 
 public class ProductServiceImpl implements ProductService {
     @Autowired
-    private ProductRepository productRepository;
+    private ProductRepository productRepository; // CẨN THẬN CẢ NHẦM PHẦN NÀY
 
     @Override
     public Page<Product> findAll(Pageable pageable) {

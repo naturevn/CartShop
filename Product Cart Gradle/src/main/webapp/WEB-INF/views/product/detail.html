@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail product</title>
+</head>
+<body>
+<h1>Detail product</h1>
+<p>
+    <a href="/home">Product list</a>
+</p>
+    <input th:type="hidden" name="id" th:field="*{detailProduct.id}">
+    <table>
+        <tr>
+            <td>Ten:</td>
+            <td th:text="*{detailProduct.name}"></td>
+        </tr>
+        <tr>
+            <td>Noi dung:</td>
+            <td th:text="*{detailProduct.description}"></td>
+        </tr>
+        <tr>
+            <td>Hinh anh:</td>
+            <td><img th:style="'width:100px'" th:src="@{'/images/'+ ${detailProduct.images}}"/></td>
+        </tr>
+        <tr>
+            <td>Gia:</td>
+            <td th:text="*{detailProduct.price}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Auto Cart Product"></td>
+        </tr>
+    </table>
+</body>
+</html>

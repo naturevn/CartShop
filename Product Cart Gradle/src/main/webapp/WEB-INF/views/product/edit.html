@@ -25,7 +25,11 @@
         </tr>
         <tr>
             <td>Hinh anh:</td>
-            <td><input type="text" th:field="*{images}"/></td>
+            <td><img th:style="'width:100px'" th:src="@{'/images/'+ ${editProduct.images}}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="text" th:field="*{images}"></td>
         </tr>
         <tr>
             <td>Gia:</td>

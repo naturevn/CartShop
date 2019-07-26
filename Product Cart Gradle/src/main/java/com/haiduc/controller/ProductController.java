@@ -93,4 +93,20 @@ public class ProductController {
         }
     }
     // End Delete
+
+    // views
+    @GetMapping("/detail-product/{id}")
+    public ModelAndView showDetails(@PathVariable Long id){
+        Product product = productService.findById(id);
+        if(product != null) {
+            ModelAndView modelAndView = new ModelAndView("/product/detail");
+            modelAndView.addObject("detailProduct", product);//detailProduct de dem qua html
+            return modelAndView;
+
+        }else {
+            ModelAndView modelAndView = new ModelAndView("/product/error.404");
+            return modelAndView;
+        }
+    }
+    // End Views
 }
