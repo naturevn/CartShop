@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/create-product">Create new product</a>
+<h1>Product</h1>
+
+<table border="1">
+    <tr>
+        <th>Ten</th>
+        <th>Mieu ta</th>
+        <th>Hinh anh</th>
+        <th>Gia</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+    <th:block th:each="product : ${products}">
+        <tr>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.images}"></td>
+            <td th:text="${product.price}"></td>
+            <td><a th:href="@{/edit-product/__${product.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-product/__${product.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:href="@{'/home'(page=${products.number - 1})}" th:if="${products.hasPrevious()}">Previous</a>
+    <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>
+    <a th:href="@{'/home'(page=${products.number + 1})}" th:if="${products.hasNext()}">Next</a>
+</div>
+</body>
+</html>
